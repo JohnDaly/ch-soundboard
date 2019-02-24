@@ -1,0 +1,13 @@
+.sound-pad {
+    cursor: pointer;
+
+    /* Dimensions */
+    width: 150px;
+    height: 150px;
+    
+    /* Margin/Padding */
+    margin-bottom: 15px;
+
+    /* Border */
+    border-radius: 3px;
+}
