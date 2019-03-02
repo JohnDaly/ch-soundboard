@@ -19,7 +19,11 @@ class SoundPad extends React.Component<Props, State> {
     }
 
     private onClick = () => {
-        this.audio.play()
+        if (this.audio.paused) {
+            this.audio.play()
+        } else {
+            this.audio.currentTime = 0
+        }
     }
 
     private buildPad = () => {
