@@ -11,9 +11,13 @@
     height: 110px;
 }
 
+.apple-user-checkbox {
+    font-size: 11px;
+}
+
 .App-header {
   background-color: #222;
-  height: 150px;
+  height: 160px;
   padding: 20px;
   color: white;
 }
