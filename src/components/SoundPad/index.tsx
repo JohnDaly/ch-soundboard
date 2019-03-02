@@ -29,7 +29,7 @@ class SoundPad extends React.Component<Props, State> {
     private buildPad = () => {
         return (
             <div
-                className='card sound-pad mx-auto'
+                className='card sound-pad'
                 onClick={this.onClick}
             >
                 <div className='card-body d-flex align-items-center justify-content-center'>
