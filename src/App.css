@@ -7,6 +7,10 @@
   height: 80px;
 }
 
+.header-logo {
+    height: 110px;
+}
+
 .App-header {
   background-color: #222;
   height: 150px;
