@@ -1,114 +1,73 @@
 // tslint:disable
 // External Dependencies
 import * as React from 'react';
+import { isEqual } from 'underscore';
 
-export interface AudioSpriteData {
-    id: string
-    title: string
-    start: number
-    length: number
-}
+// Internal Dependencies
+
+// Components
+import SoundPad from '../SoundPad';
+
+// Interfaces / Types
+import { AudioSpriteData } from 'src/boards/cheapHeat';
+import { setStateAsync } from 'src/helpers/promise';
 
 interface ComponentProps {
-    audio: HTMLAudioElement
-    spriteData: { [key: string]: AudioSpriteData }
+    soundboardConfig: { [key: string]: AudioSpriteData }
 }
 
 interface ComponentState {
-    currentSprite: any
-    audioLoaded: boolean
+    audioData: AudioSpriteData[]
 }
 
 const initialState: ComponentState = {
-    currentSprite: null,
-    audioLoaded: false
+    audioData: []
 }
 
 type Props = ComponentProps
 type State = ComponentState
 
-class SoundBoard extends React.Component<Props, State> {
-    private audio: HTMLAudioElement
-    private audioData: AudioSpriteData[]
-    
+class SoundBoard extends React.Component<Props, State> {    
     constructor(props: Props) {
         super(props);
-        this.audio = props.audio
-        this.state = {...initialState}
-        this.audio.addEventListener('timeupdate', () => this.onTimeUpdate(this.audio), false)
-        this.audio.addEventListener('canplay', () => this.onAudioLoaded(), false)
 
-        // Set up the audio sprites
-        const spriteKeys = Object.keys(props.spriteData)
-        this.audioData = spriteKeys.map((k) => props.spriteData[k])
-    }
-
-    //------------------------------
-    // Event Handlers
-    //------------------------------
-
-    private onTimeUpdate = (that: HTMLAudioElement) => {
-        const currentSprite = this.state.currentSprite
-        if (that.currentTime >= currentSprite.start + currentSprite.length) {
-            that.pause()
+        // Set up the audio data
+        const soundboardKeys = Object.keys(props.soundboardConfig)
+        const audioData = soundboardKeys.map((k) => props.soundboardConfig[k])
+        this.state = {
+            ...initialState,
+            audioData,
         }
     }
 
-    private onAudioLoaded = () => {
-        this.setState({ audioLoaded: true })
-    }
-
-    private onClickLoadAudio = () => {
-        this.audio.load()
-    }
-
-    private onClick = async (trackID: string) => {
-        this.setState({ currentSprite: this.props.spriteData[trackID] }, () => {
-            this.audio.currentTime = this.state.currentSprite.start
-            this.audio.play()
-        })
+    async componentDidUpdate(prevProps: Props) {
+        if (!isEqual(prevProps.soundboardConfig, this.props.soundboardConfig)) {
+            const soundboardKeys = Object.keys(this.props.soundboardConfig)
+            const newAudioData = soundboardKeys.map((k) => this.props.soundboardConfig[k])
+            await setStateAsync(this, { audioData: newAudioData })
+        }
     }
 
     //------------------------------
     // Content Builders
     //------------------------------
 
-    private buildPads = (audioSprites: AudioSpriteData[]) => {
-        return audioSprites.map((sprite, index) => {
-            const key = `pads_${index}`
-            return this.buildPad(sprite.title, sprite.id, key)
+    private buildPads = (audioData: AudioSpriteData[]) => {
+        return audioData.map((data) => {
+            return (
+                <SoundPad
+                    key={`soundpad_${data.id}`}
+                    title={data.title}
+                    audio={data.audio}
+                />
+            )
         })
     }
 
-    private buildPad = (title: string, trackID: string, key: string) => {
-        return (
-            <div
-                key={key}
-                className='card sound-pad'
-                onClick={() => this.onClick(trackID)}
-            >
-                <div className='card-body d-flex align-items-center justify-content-center'>
-                    {title}
-                </div>
-            </div>
-        )
-    }
-
     public render() {
-        if (!this.state.audioLoaded) {
-            return (
-                <div className="container mt-3">
-                    <button onClick={this.onClickLoadAudio}>
-                        Load Audio for Soundboard
-                    </button>
-                </div>
-            )   
-        }
         return (
-            <div className="container mt-3">
-                <div className="row justify-content-center">
-                    {this.buildPads(this.audioData)}
-                </div>
+            <div className="row justify-content-center">
+                {this.buildPads(this.state.audioData)}
             </div>
         )
     }

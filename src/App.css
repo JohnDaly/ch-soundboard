@@ -15,6 +15,16 @@
     font-size: 11px;
 }
 
+.category-label {
+    font-size: 12px;
+}
+
+.content-container {
+    max-width: 660px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .App-header {
   background-color: #222;
   height: 160px;
