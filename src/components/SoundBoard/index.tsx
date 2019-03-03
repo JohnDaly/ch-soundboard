@@ -29,8 +29,7 @@ type State = ComponentState
 
 class SoundBoard extends React.Component<Props, State> {
     private audio: HTMLAudioElement
-    private leftCol: AudioSpriteData[]
-    private rightCol: AudioSpriteData[]
+    private audioData: AudioSpriteData[]
     
     constructor(props: Props) {
         super(props);
@@ -39,13 +38,9 @@ class SoundBoard extends React.Component<Props, State> {
         this.audio.addEventListener('timeupdate', () => this.onTimeUpdate(this.audio), false)
         this.audio.addEventListener('canplay', () => this.onAudioLoaded(), false)
 
-        // Set up the columns
+        // Set up the audio sprites
         const spriteKeys = Object.keys(props.spriteData)
-        const midpoint = Math.ceil(spriteKeys.length / 2)
-        const leftKeys = spriteKeys.slice(0, midpoint)
-        const rightKeys = spriteKeys.slice(midpoint)
-        this.leftCol = leftKeys.map((k) => props.spriteData[k])
-        this.rightCol = rightKeys.map((k) => props.spriteData[k])
+        this.audioData = spriteKeys.map((k) => props.spriteData[k])
     }
 
     //------------------------------
@@ -78,9 +73,9 @@ class SoundBoard extends React.Component<Props, State> {
     // Content Builders
     //------------------------------
 
-    private buildPads = (colSprites: AudioSpriteData[], groupIndex: string) => {
-        return colSprites.map((sprite, index) => {
-            const key = `pads_${groupIndex}_${index}`
+    private buildPads = (audioSprites: AudioSpriteData[]) => {
+        return audioSprites.map((sprite, index) => {
+            const key = `pads_${index}`
             return this.buildPad(sprite.title, sprite.id, key)
         })
     }
@@ -109,16 +104,10 @@ class SoundBoard extends React.Component<Props, State> {
                 </div>
             )   
         }
-        
         return (
             <div className="container mt-3">
                 <div className="row justify-content-center">
-                    <div className="col-6 left-col">
-                        {this.buildPads(this.leftCol, 'leftCol')}
-                    </div>
-                    <div className="col-6 right-col">
-                        {this.buildPads(this.rightCol, 'rightCol')}
-                    </div>
+                    {this.buildPads(this.audioData)}
                 </div>
             </div>
         )
