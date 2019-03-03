@@ -5,9 +5,11 @@
   "homepage": "https://johndaly.github.io/ch-soundboard",
   "dependencies": {
     "@types/bootstrap": "^4.2.2",
+    "@types/howler": "^2.0.6",
     "@types/underscore": "^1.8.12",
     "bootstrap": "^4.3.1",
     "gh-pages": "^2.0.1",
+    "howler": "^2.1.1",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
     "react-scripts-ts": "3.1.0",
