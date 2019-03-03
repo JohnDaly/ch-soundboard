@@ -80,7 +80,7 @@ export const soundboardConfig = (): { [key: string]: AudioSpriteData } => {
         },
         guyWhoIsJustShady: {
             id: 'guyWhoIsJustShady',
-            title: `He can't get past a guy who's just shady`,
+            title: `He can't get past a guy who's just shady.`,
             start: 41835,
             length: 2149,
             categories: ['Greg']
@@ -101,31 +101,59 @@ export const soundboardConfig = (): { [key: string]: AudioSpriteData } => {
         },
         majOr: {
             id: 'majOr',
-            title: 'Maj-or',
+            title: 'Maj-or.',
             start: 57879,
             length: 845,
             categories: ['Dip']
         },
         mmmMaj: {
             id: 'mmmMaj',
-            title: 'M-m-m-maj',
+            title: 'M-m-m-maj.',
             start: 61838,
             length: 1261,
             categories: ['Dip']
         },
         theMajesty: {
             id: 'theMajesty',
-            title: 'The Majesty',
+            title: 'The Majesty.',
             start: 66485,
             length: 1463,
             categories: ['Dip']
         },
         mmmMail: {
             id: 'mmmMail',
-            title: 'M-m-m-mail',
+            title: 'M-m-m-mail.',
             start: 71025,
             length: 2317,
             categories: ['Dip']
+        },
+        gargantch: {
+            id: 'gargantch',
+            title: 'Gargantch.',
+            start: 76042,
+            length: 549,
+            categories: ['Dip']
+        },
+        itWasRepug: {
+            id: 'itWasRepug',
+            title: 'It was repug.',
+            start: 79032,
+            length: 940,
+            categories: ['Rosenberg']
+        },
+        itsStillReal: {
+            id: 'itsStillReal',
+            title: 'Its still real to me.',
+            start: 82192,
+            length: 2508,
+            categories: ['Emotional Fan']
+        },
+        itsStillRealLong: {
+            id: 'itsStillRealLong',
+            title: 'Its still real to me (long).',
+            start: 87189,
+            length: 12095,
+            categories: ['Emotional Fan']
         }
     }
 }
