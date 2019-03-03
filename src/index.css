@@ -37,12 +37,9 @@ body {
   font-family: sans-serif;
 }
 
-.left-col .sound-pad {
-    margin-left: auto;
-}
-
-.right-col .sound-pad {
-    margin-right: auto;
+.row .sound-pad {
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .footer {
