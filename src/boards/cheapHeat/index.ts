@@ -1,7 +1,8 @@
 // tslint:disable
 
 // Audio
-import allAudio from '../../assets/audio/all_audio.wav';
+// import allAudio from '../../assets/audio/all_audio.wav';
+import allAudioOgg from '../../assets/audio/all_audio_small.ogg';
 
 export interface AudioSpriteData {
     id: string
@@ -11,7 +12,7 @@ export interface AudioSpriteData {
     categories: string[]
 }
 
-export const allAudioSrc = allAudio;
+export const allAudioSrc = allAudioOgg;
 
 export const soundboardConfig = (): { [key: string]: AudioSpriteData } => {
     return {
