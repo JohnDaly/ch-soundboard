@@ -154,6 +154,69 @@ export const soundboardConfig = (): { [key: string]: AudioSpriteData } => {
             start: 87189,
             length: 12095,
             categories: ['Emotional Fan']
+        },
+        speculatch: {
+            id: 'speculatch',
+            title: 'Speculatch.',
+            start: 101021,
+            length: 784,
+            categories: ['Rosenberg']
+        },
+        jeffHarvey: {
+            id: 'jeffHarvey',
+            title: 'Jeff Harvey.',
+            start: 103010,
+            length: 6792,
+            categories: ['Misc']
+        },
+        sugarHillGang: {
+            id: 'sugarHillGang',
+            title: 'Sugar Hill Gang.',
+            start: 111146,
+            length: 3527,
+            categories: ['Greg']
+        },
+        putThatCigOut: {
+            id: 'putThatCigOut',
+            title: 'Put that cigarette out.',
+            start: 116358,
+            length: 1411,
+            categories: ['Mean Gene'],
+        },
+        itsNotABelt: {
+            id: 'itsNotABelt',
+            title: 'Its not a belt.',
+            start: 120005,
+            length: 1750,
+            categories: ['Misc'],
+        },
+        hoganBotch1: {
+            id: 'hoganBotch1',
+            title: 'Hogan Botch 1.',
+            start: 125135,
+            length: 22309,
+            categories: ['Hulk Hogan'],
+        },
+        hoganRock: {
+            id: 'hoganRock',
+            title: 'I had a match with a Rock.',
+            start: 150934,
+            length: 3579,
+            categories: ['Hulk Hogan'],
+        },
+        bretHartArtform: {
+            id: 'bretHartArtform',
+            title: 'Bret Hart is the greatest professional wrestler.',
+            start: 157792,
+            length: 6818,
+            categories: ['Greg'],
+        },
+        physicallyLarge: {
+            id: 'physicallyLarge',
+            title: 'The Physically Large.',
+            start: 167014,
+            length: 1269,
+            categories: ['Rosenberg'],
         }
     }
 }
