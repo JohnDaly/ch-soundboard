@@ -15,6 +15,7 @@
 
     /* Font */
     font-size: 11px;
+    color: var(--color);
 }
 
 .card {

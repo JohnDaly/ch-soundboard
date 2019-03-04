@@ -92,14 +92,14 @@ class SoundBoard extends React.Component<Props, State> {
 
     private buildPad = (title: string, trackID: string, key: string) => {
         const content = (
-            <div
+            <button
                 className='card sound-pad'
                 onClick={() => this.onClick(trackID)}
             >
                 <div className='card-body d-flex align-items-center justify-content-center'>
                     {title}
                 </div>
-            </div>
+            </button>
         )
 
         return (
