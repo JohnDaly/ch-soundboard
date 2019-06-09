@@ -35,14 +35,14 @@ const SoundPadCard = styled.button.attrs({ className: 'card' })`
 
     /* Border */
     border-radius: 3px;
-    box-shadow: 2px 3px var(--shadow-color);
+    box-shadow: 2px 3px ${({ theme }) => theme.shadowColor};
 
     /* Font */
     font-size: 11px;
-    color: var(--color);
+    color: ${({ theme }) => theme.color};
 
     /* Color */
-    background-color: var(--card-bg);
+    background-color: ${({ theme }) => theme.cardBgColor};
 
     /* Transition */
     transition: all 0.2s ease;

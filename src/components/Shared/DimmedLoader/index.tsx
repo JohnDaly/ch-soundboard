@@ -74,7 +74,7 @@ const Loader = styled.div<{ active: boolean }>`
         opacity: .15;
     };
     :after {
-        ${ loaderAnimation };
+        ${loaderAnimation};
         animation-iteration-count: infinite;
         border: 3px solid;
         border-color: transparent;
@@ -83,7 +83,7 @@ const Loader = styled.div<{ active: boolean }>`
     }
 `
 
-const DimmerContent = styled.div<{ active: boolean }>((props) => (props.active) ? ({
+const DimmerContent = styled.div<{ active: boolean }>(({ active }) => (active) ? ({
     opacity: 0.5,
     pointerEvents: 'none',
 }) : {})

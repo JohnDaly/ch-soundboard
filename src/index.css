@@ -1,30 +1,6 @@
-
-:root {
-    --bg: #fff;
-    --card-bg: #fff;
-    --shadow-color: #888888;
-    --color: #444;
-    --line: #ddd;
-    --heading: #1e2357;
-}
-
-[data-theme='dark'] {
-    --bg: #202126;
-    --card-bg: #404040;
-    --shadow-color: black;
-    --color: #efefef;
-    --line: #555;
-    --heading: #c5c5c5;
-}
-
 html, body, #root, .App {
     height: 100%;
     overflow-y: scroll;
-}
-
-.App {
-    background: var(--bg);
-    color: var(--color);
 }
 
 body {

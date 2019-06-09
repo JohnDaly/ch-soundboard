@@ -1,6 +1,6 @@
 // External Dependencies
 import * as React from 'react'
-import styled from 'styled-components'
+import styled, { ThemeProvider } from 'styled-components'
 import { isUndefined } from 'util'
 
 // Internal Dependencies
@@ -20,6 +20,7 @@ import * as LocalStorage from './store/localStorage'
 import { allAudioSrc, AudioSpriteData, soundboardConfig } from './boards/cheapHeat'
 import { THEME_DARK, THEME_STATE_KEY } from './constants/constants'
 import { setStateAsync } from './helpers/promise'
+import { darkTheme, lightTheme } from './helpers/theme'
 
 const initialState = {
     theme: THEME_DARK as string,
@@ -51,7 +52,8 @@ class App extends React.Component<Props, State> {
     // ------------------------------
 
     private toggleTheme = async () => {
-        const newTheme = (this.state.theme === THEME_DARK) ? '' : THEME_DARK
+        const { theme } = this.state
+        const newTheme = (theme === THEME_DARK) ? '' : THEME_DARK
 
         // Save the theme to local storage
         LocalStorage.saveStateForKey(newTheme, THEME_STATE_KEY)
@@ -119,30 +121,33 @@ class App extends React.Component<Props, State> {
         const isDarkTheme = theme === THEME_DARK
         
         return (
-            <AppWrapper data-theme={theme}>
-                <AppHeader>
-                    <HeaderLogo src={cheapheatLogo} />
-                </AppHeader>
+            <ThemeProvider theme={(isDarkTheme) ? darkTheme : lightTheme}>
+                <AppWrapper>
+                    <AppHeader>
+                        <HeaderLogo src={cheapheatLogo} />
+                    </AppHeader>
 
-                <ContentContainer>
-                    {this.buildCategorySelect()}
-                    <SoundBoard audioSrc={this.allAudioSrc} soundboardConfig={config} />
-                </ContentContainer>
+                    <ContentContainer>
+                        {this.buildCategorySelect()}
+                        <SoundBoard audioSrc={this.allAudioSrc} soundboardConfig={config} />
+                    </ContentContainer>
 
-                <Footer>
-                    <ThemeToggle
-                        isDarkTheme={isDarkTheme}
-                        onClick={this.toggleTheme}
-                    />
-                </Footer>
-            </AppWrapper>
+                    <Footer>
+                        <ThemeToggle
+                            isDarkTheme={isDarkTheme}
+                            onClick={this.toggleTheme}
+                        />
+                    </Footer>
+                </AppWrapper>
+            </ThemeProvider>
         )
     }
 }
 
 const AppWrapper = styled.div`
-    background: var(--bg);
-    color: var(--color);
+    min-height: 100%;
+    background: ${({ theme }) => theme.bgColor};
+    color: ${({ theme }) => theme.color};
     text-align: center;
 `
 
