@@ -1,22 +1,23 @@
 // External Dependencies
 import * as React from 'react'
+import styled from 'styled-components'
 import { isUndefined } from 'util'
 
 // Internal Dependencies
-import './App.css'
 
 // Images
 import cheapheatLogo from './assets/images/cheap-heat-logo.png'
 
 // Components
+import { Footer } from './components/Shared/Footer'
 import SoundBoard from './components/SoundBoard'
+import { ThemeToggle } from './components/ThemeToggle'
 
 // State
 import * as LocalStorage from './store/localStorage'
 
 // Helpers
 import { allAudioSrc, AudioSpriteData, soundboardConfig } from './boards/cheapHeat'
-import { Footer } from './components/Shared/Footer'
 import { THEME_DARK, THEME_STATE_KEY } from './constants/constants'
 import { setStateAsync } from './helpers/promise'
 
@@ -83,16 +84,6 @@ class App extends React.Component<Props, State> {
     // Content Builders
     // ------------------------------
 
-    private buildHeader = () => {
-        return (
-            <header className='App-header'>
-                <div>
-                    <img src={cheapheatLogo} className='header-logo'/>
-                </div>
-            </header>
-        )
-    }
-
     private buildCategorySelect = () => {
         const categories = ['All']
         const soundboardKeys = Object.keys(this.soundboardConfig)
@@ -114,56 +105,74 @@ class App extends React.Component<Props, State> {
         })
 
         return (
-            <div className='my-3'>
-                <span className='category-label mr-2'>Category:</span>
+            <CategorySelectContainer>
+                <CategoryLabel label={'Category:'} />
                 <select onChange={this.selectCategory}>
                     {selectOptions}
                 </select>
-            </div>
+            </CategorySelectContainer>
         )
     }
 
-    private buildContent = () => {
+    render() {
+        const { theme, config } = this.state   
+        const isDarkTheme = theme === THEME_DARK
+        
         return (
-            <SoundBoard
-                audioSrc={this.allAudioSrc}
-                soundboardConfig={this.state.config}
-            />
-        )
-    }
+            <AppWrapper data-theme={theme}>
+                <AppHeader>
+                    <HeaderLogo src={cheapheatLogo} />
+                </AppHeader>
 
-    private buildThemeToggle = () => {
-        const isDarkTheme = this.state.theme === THEME_DARK
-        const buttonIcon = (isDarkTheme) ? 'fas fa-sun' : 'fas fa-moon'
-        return (
-            <button
-                className='btn btn-primary'
-                onClick={() => this.toggleTheme()}
-            >
-                <i className={`${buttonIcon}`} />
-            </button>
-        )
-    }
-
-    render() {        
-        return (
-            <div className='App' data-theme={this.state.theme}>
-                {this.buildHeader()}
-
-
-                <div className='container mt-3'>
-                    <div className='content-container'>
-                        {this.buildCategorySelect()}
-                        {this.buildContent()}
-                    </div>
-                </div>
+                <ContentContainer>
+                    {this.buildCategorySelect()}
+                    <SoundBoard audioSrc={this.allAudioSrc} soundboardConfig={config} />
+                </ContentContainer>
 
                 <Footer>
-                    {this.buildThemeToggle()}
+                    <ThemeToggle
+                        isDarkTheme={isDarkTheme}
+                        onClick={this.toggleTheme}
+                    />
                 </Footer>
-            </div>
+            </AppWrapper>
         )
     }
 }
+
+const AppWrapper = styled.div`
+    background: var(--bg);
+    color: var(--color);
+    text-align: center;
+`
+
+const AppHeader = styled.header`
+    background-color: #1c1d1f;
+    height: 160px;
+    padding: 20px;
+    color: white;
+`
+
+const HeaderLogo = styled.img`
+    height: 110px;
+`
+
+const ContentContainer = styled.div`
+    max-width: 660px;
+    margin-left: auto;
+    margin-right: auto;
+`
+
+const CategorySelectContainer = styled.div`
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+`
+
+const CategoryLabel = styled((props: { label: string, className?: string }) => (
+    <span className={props.className}>{props.label}</span>
+))`
+    font-size: 12px;
+    margin-right: 0.5rem;
+`
 
 export default App

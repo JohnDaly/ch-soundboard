@@ -5,7 +5,6 @@ import styled from 'styled-components'
 import { isEqual } from 'underscore'
 
 // Internal Dependencies
-// import './style.css'
 
 // Interfaces / Types
 import { AudioSpriteData } from 'src/boards/cheapHeat'
@@ -49,10 +48,7 @@ class SoundBoard extends React.Component<Props, State> {
         })
         this.audio.on('load', () => this.audioLoaded())
 
-        this.state = {
-            ...initialState,
-            audioData
-        }
+        this.state = { ...initialState, audioData }
     }
 
     async componentDidUpdate(prevProps: Props) {

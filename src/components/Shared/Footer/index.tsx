@@ -4,4 +4,7 @@ export const Footer = styled.footer`
     display: flex;
     flex-direction: row;
     justify-content: end;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 `

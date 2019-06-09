@@ -5,15 +5,21 @@ interface Props {
     title: string
     trackID: string
     onClick: (trackID: string) => any
+    className?: string
 }
 
-export const SoundPad: React.FC<Props> = ({ title, trackID, onClick }: Props) => (
-    <SoundPadCard onClick={() => onClick(trackID)}>
-        <SoundPadBody>
-            {title}
-        </SoundPadBody>
-    </SoundPadCard>
-)
+export const SoundPad: React.FC<Props> = styled(({ title, trackID, onClick, className }: Props) => (
+    <div className={className}>
+        <SoundPadCard onClick={() => onClick(trackID)}>
+            <SoundPadBody>
+                {title}
+            </SoundPadBody>
+        </SoundPadCard>
+    </div>
+))`
+    margin-left: 5px;
+    margin-right: 5px;
+`
 
 const SoundPadCard = styled.button.attrs({ className: 'card' })`
     cursor: pointer;
