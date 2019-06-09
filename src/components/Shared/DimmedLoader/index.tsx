@@ -68,11 +68,11 @@ const Loader = styled.div<{ active: boolean }>`
         top: 50%;
         bottom: 50%;
         border-radius: 50%;
-    };
+    }
     :before {
         border: 3px solid currentColor;
         opacity: .15;
-    };
+    }
     :after {
         ${loaderAnimation};
         animation-iteration-count: infinite;
