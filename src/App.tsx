@@ -1,43 +1,37 @@
-// tslint:disable
 // External Dependencies
-import * as React from 'react';
-import { isUndefined } from 'util';
+import * as React from 'react'
+import { isUndefined } from 'util'
 
 // Internal Dependencies
 import './App.css'
 
 // Images
-import cheapheatLogo from './assets/images/cheap-heat-logo.png';
+import cheapheatLogo from './assets/images/cheap-heat-logo.png'
 
 // Components
-import SoundBoard from './components/SoundBoard';
+import SoundBoard from './components/SoundBoard'
 
 // State
-import * as LocalStorage from './store/localStorage';
+import * as LocalStorage from './store/localStorage'
 
 // Helpers
-import { THEME_STATE_KEY, THEME_DARK } from './constants/constants';
-import { soundboardConfig, allAudioSrc } from './boards/cheapHeat';
-import { setStateAsync } from './helpers/promise';
+import { allAudioSrc, AudioSpriteData, soundboardConfig } from './boards/cheapHeat'
+import { Footer } from './components/Shared/Footer'
+import { THEME_DARK, THEME_STATE_KEY } from './constants/constants'
+import { setStateAsync } from './helpers/promise'
 
-interface ComponentState {
-    theme: string
-    config: any
-    category: string
-}
-
-const initialState: ComponentState = {
-    theme: THEME_DARK,
-    config: null,
-    category: '',
+const initialState = {
+    theme: THEME_DARK as string,
+    config: {} as { [key: string]: AudioSpriteData },
+    category: '' as string,
 }
 
 type Props = any
-type State = ComponentState
+type State = typeof initialState
 
 class App extends React.Component<Props, State> {
-    private allAudioSrc = allAudioSrc;
-    private soundboardConfig = soundboardConfig();
+    private allAudioSrc = allAudioSrc
+    private soundboardConfig = soundboardConfig()
     
     constructor(props: Props) {
         super(props)
@@ -51,9 +45,9 @@ class App extends React.Component<Props, State> {
         }
     }
 
-    //------------------------------
+    // ------------------------------
     // Event Handlers
-    //------------------------------
+    // ------------------------------
 
     private toggleTheme = async () => {
         const newTheme = (this.state.theme === THEME_DARK) ? '' : THEME_DARK
@@ -85,22 +79,22 @@ class App extends React.Component<Props, State> {
         await setStateAsync(this, { config: newConfig })
     }
 
-    //------------------------------
+    // ------------------------------
     // Content Builders
-    //------------------------------
+    // ------------------------------
 
     private buildHeader = () => {
         return (
-            <header className="App-header">
+            <header className='App-header'>
                 <div>
-                    <img src={cheapheatLogo} className="header-logo"/>
+                    <img src={cheapheatLogo} className='header-logo'/>
                 </div>
             </header>
         )
     }
 
     private buildCategorySelect = () => {
-        let categories = ['All']
+        const categories = ['All']
         const soundboardKeys = Object.keys(this.soundboardConfig)
         for (const key of soundboardKeys) {
             const data = this.soundboardConfig[key]
@@ -113,10 +107,7 @@ class App extends React.Component<Props, State> {
 
         const selectOptions = categories.map((category, idx) => {
             return (
-                <option
-                    key={`category_${idx}`}
-                    value={category}
-                >
+                <option key={`category_${idx}`} value={category}>
                     {category}
                 </option>
             )
@@ -141,14 +132,6 @@ class App extends React.Component<Props, State> {
         )
     }
 
-    private buildFooter = () => {
-        return (
-            <footer className='footer d-flex flex-row justify-content-end'>
-                {this.buildThemeToggle()}
-            </footer>
-        )
-    }
-
     private buildThemeToggle = () => {
         const isDarkTheme = this.state.theme === THEME_DARK
         const buttonIcon = (isDarkTheme) ? 'fas fa-sun' : 'fas fa-moon'
@@ -157,28 +140,30 @@ class App extends React.Component<Props, State> {
                 className='btn btn-primary'
                 onClick={() => this.toggleTheme()}
             >
-                <i className={`${buttonIcon}`}></i>
+                <i className={`${buttonIcon}`} />
             </button>
         )
     }
 
-    public render() {        
+    render() {        
         return (
-            <div className="App" data-theme={this.state.theme}>
+            <div className='App' data-theme={this.state.theme}>
                 {this.buildHeader()}
 
 
-                <div className="container mt-3">
-                    <div className="content-container">
+                <div className='container mt-3'>
+                    <div className='content-container'>
                         {this.buildCategorySelect()}
                         {this.buildContent()}
                     </div>
                 </div>
 
-                {this.buildFooter()}
+                <Footer>
+                    {this.buildThemeToggle()}
+                </Footer>
             </div>
-        );
+        )
     }
 }
 
-export default App;
+export default App
