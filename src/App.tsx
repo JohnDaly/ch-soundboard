@@ -150,6 +150,7 @@ const AppWrapper = styled.div`
     color: ${({ theme }) => theme.color};
     text-align: center;
 `
+AppWrapper.displayName = 'AppWrapper'
 
 const AppHeader = styled.header`
     background-color: #1c1d1f;
@@ -157,21 +158,25 @@ const AppHeader = styled.header`
     padding: 20px;
     color: white;
 `
+AppHeader.displayName = 'AppHeader'
 
 const HeaderLogo = styled.img`
     height: 110px;
 `
+HeaderLogo.displayName = 'HeaderLogo'
 
 const ContentContainer = styled.div`
     max-width: 660px;
     margin-left: auto;
     margin-right: auto;
 `
+ContentContainer.displayName = 'ContentContainer'
 
 const CategorySelectContainer = styled.div`
     margin-top: 1rem;
     margin-bottom: 1rem;
 `
+CategorySelectContainer.displayName = 'CategorySelectContainer'
 
 const CategoryLabel = styled((props: { label: string, className?: string }) => (
     <span className={props.className}>{props.label}</span>
@@ -179,5 +184,6 @@ const CategoryLabel = styled((props: { label: string, className?: string }) => (
     font-size: 12px;
     margin-right: 0.5rem;
 `
+CategoryLabel.displayName = 'CategoryLabel'
 
 export default App

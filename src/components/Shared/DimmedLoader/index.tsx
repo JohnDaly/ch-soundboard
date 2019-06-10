@@ -34,6 +34,7 @@ const Dimmer = styled.div`
     position: relative;
     height: 100%;
 `
+Dimmer.displayName = 'Dimmer'
 
 const loaderAnimationKeyframes = keyframes`
     from {
@@ -82,8 +83,10 @@ const Loader = styled.div<{ active: boolean }>`
         box-shadow: 0 0 0 1px transparent;
     }
 `
+Loader.displayName = 'Loader'
 
 const DimmerContent = styled.div<{ active: boolean }>(({ active }) => (active) ? ({
     opacity: 0.5,
     pointerEvents: 'none',
 }) : {})
+DimmerContent.displayName = 'DimmerContent'

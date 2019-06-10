@@ -1,20 +1,19 @@
 // External Dependencies
-import { mount, shallow } from 'enzyme'
+import { mount } from 'enzyme'
 import enzymeToJSON from 'enzyme-to-json'
 import 'jest-styled-components'
 import React from 'react'
 
 // Internal Dependencies
-import App from './App'
+import { Footer } from './index'
 
-describe('App', () => {
-    it('renders without crashing', () => {
-        const wrapper = mount(<App />)
-        expect(wrapper).toBeDefined()
-    })
-
+describe('Footer', () => {
     it('should match the snapshot', () => {
-        const wrapper = shallow(<App />)
+        const wrapper = mount(
+            <Footer>
+                <div>Footer Content</div>
+            </Footer>
+        )
         expect(enzymeToJSON(wrapper)).toMatchSnapshot()
     })
 })

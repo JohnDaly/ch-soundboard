@@ -10,7 +10,7 @@ import { isEqual } from 'underscore'
 import { AudioSpriteData } from 'src/boards/cheapHeat'
 
 // Helpers
-import { setStateAsync } from 'src/helpers/promise'
+import { setStateAsync } from '../../helpers/promise'
 import DimmedLoader from '../Shared/DimmedLoader'
 import { SoundPad } from '../SoundPad'
 
@@ -32,20 +32,16 @@ class SoundBoard extends React.Component<Props, State> {
     
     constructor(props: Props) {
         super(props)
+        const { soundboardConfig, audioSrc } = props
 
         // Set up the audio sprites
-        const soundboardKeys = Object.keys(props.soundboardConfig)
-        const audioData = soundboardKeys.map((k) => props.soundboardConfig[k])
+        const soundboardKeys = Object.keys(soundboardConfig)
+        const audioData = soundboardKeys.map((k) => soundboardConfig[k])
 
         // Set up Howler
         const spriteData = {}
-        for (const data of audioData) {
-            spriteData[data.id] = [data.start, data.length]
-        }
-        this.audio = new Howl({
-            src: props.audioSrc,
-            sprite: spriteData
-        })
+        audioData.forEach(({ id, start, length }) => { spriteData[id] = [start, length] })
+        this.audio = new Howl({ src: audioSrc, sprite: spriteData })
         this.audio.on('load', () => this.audioLoaded())
 
         this.state = { ...initialState, audioData }
@@ -108,9 +104,11 @@ class SoundBoard extends React.Component<Props, State> {
 const Container = styled.div.attrs({ className: 'container '})`
     margin-top: 1rem;
 `
+Container.displayName = 'Container'
 
 const Row = styled.div.attrs({ className: 'row' })`
     justify-content: center;
 `
+Row.displayName = 'Row'
 
 export default SoundBoard

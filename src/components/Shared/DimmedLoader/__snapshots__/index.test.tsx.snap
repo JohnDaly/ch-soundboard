@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DimmedLoader should match the snapshot (isLoading = false) 1`] = `
+<Dimmer>
+  <Loader
+    active={false}
+  />
+  <DimmerContent
+    active={false}
+  >
+    <h1>
+      Hello, world!
+    </h1>
+  </DimmerContent>
+</Dimmer>
+`;
+
+exports[`DimmedLoader should match the snapshot (isLoading = true) 1`] = `
+<Dimmer>
+  <Loader
+    active={true}
+  />
+  <DimmerContent
+    active={true}
+  >
+    <h1>
+      Hello, world!
+    </h1>
+  </DimmerContent>
+</Dimmer>
+`;

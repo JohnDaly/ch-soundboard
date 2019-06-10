@@ -1,0 +1,363 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App should match the snapshot 1`] = `
+<ThemeProvider
+  theme={
+    Object {
+      "bgColor": "#fff",
+      "cardBgColor": "#fff",
+      "color": "#444",
+      "headingColor": "#1e2357",
+      "lineColor": "#ddd",
+      "shadowColor": "#888888",
+    }
+  }
+>
+  <AppWrapper>
+    <AppHeader>
+      <HeaderLogo
+        src="cheap-heat-logo.png"
+      />
+    </AppHeader>
+    <ContentContainer>
+      <CategorySelectContainer>
+        <CategoryLabel
+          label="Category:"
+        />
+        <select
+          onChange={[Function]}
+        >
+          <option
+            key="category_0"
+            value="All"
+          >
+            All
+          </option>
+          <option
+            key="category_1"
+            value="Morris"
+          >
+            Morris
+          </option>
+          <option
+            key="category_2"
+            value="Greg"
+          >
+            Greg
+          </option>
+          <option
+            key="category_3"
+            value="Dip"
+          >
+            Dip
+          </option>
+          <option
+            key="category_4"
+            value="Rosenberg"
+          >
+            Rosenberg
+          </option>
+          <option
+            key="category_5"
+            value="Emotional Fan"
+          >
+            Emotional Fan
+          </option>
+          <option
+            key="category_6"
+            value="Misc"
+          >
+            Misc
+          </option>
+          <option
+            key="category_7"
+            value="Mean Gene"
+          >
+            Mean Gene
+          </option>
+          <option
+            key="category_8"
+            value="Hulk Hogan"
+          >
+            Hulk Hogan
+          </option>
+        </select>
+      </CategorySelectContainer>
+      <SoundBoard
+        audioSrc="all_audio_small.mp3"
+        soundboardConfig={
+          Object {
+            "bretHartArtform": Object {
+              "categories": Array [
+                "Greg",
+              ],
+              "id": "bretHartArtform",
+              "length": 6818,
+              "start": 157792,
+              "title": "Bret Hart is the greatest professional wrestler.",
+            },
+            "deliciousChicken": Object {
+              "categories": Array [
+                "Greg",
+              ],
+              "id": "deliciousChicken",
+              "length": 1520,
+              "start": 23750,
+              "title": "I like delicious chicken.",
+            },
+            "gargantch": Object {
+              "categories": Array [
+                "Dip",
+              ],
+              "id": "gargantch",
+              "length": 549,
+              "start": 76042,
+              "title": "Gargantch.",
+            },
+            "guyWhoIsJustShady": Object {
+              "categories": Array [
+                "Greg",
+              ],
+              "id": "guyWhoIsJustShady",
+              "length": 2149,
+              "start": 41835,
+              "title": "He can't get past a guy who's just shady.",
+            },
+            "hoganBotch1": Object {
+              "categories": Array [
+                "Hulk Hogan",
+              ],
+              "id": "hoganBotch1",
+              "length": 22309,
+              "start": 125135,
+              "title": "Hogan Botch 1.",
+            },
+            "hoganRock": Object {
+              "categories": Array [
+                "Hulk Hogan",
+              ],
+              "id": "hoganRock",
+              "length": 3579,
+              "start": 150934,
+              "title": "I had a match with a Rock.",
+            },
+            "hurtingMe": Object {
+              "categories": Array [
+                "Morris",
+              ],
+              "id": "hurtingMe",
+              "length": 1791,
+              "start": 19144,
+              "title": "You're hurting me.",
+            },
+            "iSee": Object {
+              "categories": Array [
+                "Morris",
+              ],
+              "id": "iSee",
+              "length": 1765,
+              "start": 4485,
+              "title": "I see, uh huh.",
+            },
+            "imSorry": Object {
+              "categories": Array [
+                "Morris",
+              ],
+              "id": "imSorry",
+              "length": 1504,
+              "start": 14326,
+              "title": "Oh, I'm sorry.",
+            },
+            "itWasRepug": Object {
+              "categories": Array [
+                "Rosenberg",
+              ],
+              "id": "itWasRepug",
+              "length": 940,
+              "start": 79032,
+              "title": "It was repug.",
+            },
+            "itsNotABelt": Object {
+              "categories": Array [
+                "Misc",
+              ],
+              "id": "itsNotABelt",
+              "length": 1750,
+              "start": 120005,
+              "title": "Its not a belt.",
+            },
+            "itsProfessionalWrestling": Object {
+              "categories": Array [
+                "Greg",
+              ],
+              "id": "itsProfessionalWrestling",
+              "length": 1945,
+              "start": 36983,
+              "title": "It's professional wrestling.",
+            },
+            "itsStillReal": Object {
+              "categories": Array [
+                "Emotional Fan",
+              ],
+              "id": "itsStillReal",
+              "length": 2508,
+              "start": 82192,
+              "title": "Its still real to me.",
+            },
+            "itsStillRealLong": Object {
+              "categories": Array [
+                "Emotional Fan",
+              ],
+              "id": "itsStillRealLong",
+              "length": 12095,
+              "start": 87189,
+              "title": "Its still real to me (long).",
+            },
+            "jeffHarvey": Object {
+              "categories": Array [
+                "Misc",
+              ],
+              "id": "jeffHarvey",
+              "length": 6792,
+              "start": 103010,
+              "title": "Jeff Harvey.",
+            },
+            "majOr": Object {
+              "categories": Array [
+                "Dip",
+              ],
+              "id": "majOr",
+              "length": 845,
+              "start": 57879,
+              "title": "Maj-or.",
+            },
+            "mmmMail": Object {
+              "categories": Array [
+                "Dip",
+              ],
+              "id": "mmmMail",
+              "length": 2317,
+              "start": 71025,
+              "title": "M-m-m-mail.",
+            },
+            "mmmMaj": Object {
+              "categories": Array [
+                "Dip",
+              ],
+              "id": "mmmMaj",
+              "length": 1261,
+              "start": 61838,
+              "title": "M-m-m-maj.",
+            },
+            "notAWinner": Object {
+              "categories": Array [
+                "Morris",
+              ],
+              "id": "notAWinner",
+              "length": 1269,
+              "start": 331,
+              "title": "He's not a winner.",
+            },
+            "ohMyGoodness": Object {
+              "categories": Array [
+                "Greg",
+              ],
+              "id": "ohMyGoodness",
+              "length": 1595,
+              "start": 28353,
+              "title": "Oh my goodness.",
+            },
+            "physicallyLarge": Object {
+              "categories": Array [
+                "Rosenberg",
+              ],
+              "id": "physicallyLarge",
+              "length": 1269,
+              "start": 167014,
+              "title": "The Physically Large.",
+            },
+            "putThatCigOut": Object {
+              "categories": Array [
+                "Mean Gene",
+              ],
+              "id": "putThatCigOut",
+              "length": 1411,
+              "start": 116358,
+              "title": "Put that cigarette out.",
+            },
+            "replicaBelts": Object {
+              "categories": Array [
+                "Greg",
+              ],
+              "id": "replicaBelts",
+              "length": 2789,
+              "start": 51778,
+              "title": "People buy replica belts all the time.",
+            },
+            "shawnTopTen": Object {
+              "categories": Array [
+                "Greg",
+              ],
+              "id": "shawnTopTen",
+              "length": 1552,
+              "start": 32882,
+              "title": "I don't know if I have Shawn top ten.",
+            },
+            "soHappy": Object {
+              "categories": Array [
+                "Morris",
+              ],
+              "id": "soHappy",
+              "length": 2053,
+              "start": 9421,
+              "title": "I was so happy.",
+            },
+            "speculatch": Object {
+              "categories": Array [
+                "Rosenberg",
+              ],
+              "id": "speculatch",
+              "length": 784,
+              "start": 101021,
+              "title": "Speculatch.",
+            },
+            "sugarHillGang": Object {
+              "categories": Array [
+                "Greg",
+              ],
+              "id": "sugarHillGang",
+              "length": 3527,
+              "start": 111146,
+              "title": "Sugar Hill Gang.",
+            },
+            "thanksForNothingShaq": Object {
+              "categories": Array [
+                "Greg",
+              ],
+              "id": "thanksForNothingShaq",
+              "length": 2108,
+              "start": 46823,
+              "title": "Thanks for nothing, Shaq.",
+            },
+            "theMajesty": Object {
+              "categories": Array [
+                "Dip",
+              ],
+              "id": "theMajesty",
+              "length": 1463,
+              "start": 66485,
+              "title": "The Majesty.",
+            },
+          }
+        }
+      />
+    </ContentContainer>
+    <Footer>
+      <ThemeToggle
+        isDarkTheme={false}
+        onClick={[Function]}
+      />
+    </Footer>
+  </AppWrapper>
+</ThemeProvider>
+`;
