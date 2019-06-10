@@ -20,6 +20,7 @@ export const SoundPad: React.FC<Props> = styled(({ title, trackID, onClick, clas
     margin-left: 5px;
     margin-right: 5px;
 `
+SoundPad.displayName = 'SoundPad'
 
 const SoundPadCard = styled.button.attrs({ className: 'card' })`
     cursor: pointer;
@@ -57,6 +58,8 @@ const SoundPadCard = styled.button.attrs({ className: 'card' })`
         transform: scale(0.99) translateY(3px) translateX(2px);
     }
 `
+SoundPadCard.displayName = 'SoundPadCard'
+
 
 const SoundPadBody = styled.div`
     height: 100%;
@@ -64,3 +67,4 @@ const SoundPadBody = styled.div`
     align-items: center;
     justify-content: center;
 `
+SoundPadBody.displayName = 'SoundPadBody'
