@@ -10,7 +10,7 @@ import { isEqual } from 'underscore'
 import { AudioSpriteData } from '../../boards/cheapHeat'
 
 // Components
-import DimmedLoader from '../../components/Shared/DimmedLoader'
+import DimmedLoader from '../../components/DimmedLoader'
 import { SoundPad } from '../../components/SoundPad'
 
 // Helpers

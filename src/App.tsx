@@ -12,7 +12,7 @@ import cheapheatLogo from './assets/images/cheap-heat-logo.png'
 import SoundBoard from './containers/SoundBoard'
 
 // Components
-import { Footer } from './components/Shared/Footer'
+import { Footer } from './components/Footer'
 import { ThemeToggle } from './components/ThemeToggle'
 
 // State
