@@ -1,43 +1,41 @@
-// tslint:disable
 // External Dependencies
-import * as React from 'react';
-import { isUndefined } from 'util';
+import * as React from 'react'
+import styled, { ThemeProvider } from 'styled-components'
+import { isUndefined } from 'util'
 
 // Internal Dependencies
-import './App.css'
 
 // Images
-import cheapheatLogo from './assets/images/cheap-heat-logo.png';
+import cheapheatLogo from './assets/images/cheap-heat-logo.png'
+
+// Containers
+import SoundBoard from './containers/SoundBoard'
 
 // Components
-import SoundBoard from './components/SoundBoard';
+import { Footer } from './components/Footer'
+import { ThemeToggle } from './components/ThemeToggle'
 
 // State
-import * as LocalStorage from './store/localStorage';
+import * as LocalStorage from './store/localStorage'
 
 // Helpers
-import { THEME_STATE_KEY, THEME_DARK } from './constants/constants';
-import { soundboardConfig, allAudioSrc } from './boards/cheapHeat';
-import { setStateAsync } from './helpers/promise';
+import { allAudioSrc, AudioSpriteData, soundboardConfig } from './boards/cheapHeat'
+import { THEME_DARK, THEME_STATE_KEY } from './constants/constants'
+import { setStateAsync } from './helpers/promise'
+import { darkTheme, lightTheme } from './helpers/theme'
 
-interface ComponentState {
-    theme: string
-    config: any
-    category: string
-}
-
-const initialState: ComponentState = {
-    theme: THEME_DARK,
-    config: null,
-    category: '',
+const initialState = {
+    theme: THEME_DARK as string,
+    config: {} as { [key: string]: AudioSpriteData },
+    category: '' as string,
 }
 
 type Props = any
-type State = ComponentState
+type State = typeof initialState
 
 class App extends React.Component<Props, State> {
-    private allAudioSrc = allAudioSrc;
-    private soundboardConfig = soundboardConfig();
+    private allAudioSrc = allAudioSrc
+    private soundboardConfig = soundboardConfig()
     
     constructor(props: Props) {
         super(props)
@@ -51,12 +49,13 @@ class App extends React.Component<Props, State> {
         }
     }
 
-    //------------------------------
+    // ------------------------------
     // Event Handlers
-    //------------------------------
+    // ------------------------------
 
     private toggleTheme = async () => {
-        const newTheme = (this.state.theme === THEME_DARK) ? '' : THEME_DARK
+        const { theme } = this.state
+        const newTheme = (theme === THEME_DARK) ? '' : THEME_DARK
 
         // Save the theme to local storage
         LocalStorage.saveStateForKey(newTheme, THEME_STATE_KEY)
@@ -85,22 +84,12 @@ class App extends React.Component<Props, State> {
         await setStateAsync(this, { config: newConfig })
     }
 
-    //------------------------------
+    // ------------------------------
     // Content Builders
-    //------------------------------
-
-    private buildHeader = () => {
-        return (
-            <header className="App-header">
-                <div>
-                    <img src={cheapheatLogo} className="header-logo"/>
-                </div>
-            </header>
-        )
-    }
+    // ------------------------------
 
     private buildCategorySelect = () => {
-        let categories = ['All']
+        const categories = ['All']
         const soundboardKeys = Object.keys(this.soundboardConfig)
         for (const key of soundboardKeys) {
             const data = this.soundboardConfig[key]
@@ -113,72 +102,90 @@ class App extends React.Component<Props, State> {
 
         const selectOptions = categories.map((category, idx) => {
             return (
-                <option
-                    key={`category_${idx}`}
-                    value={category}
-                >
+                <option key={`category_${idx}`} value={category}>
                     {category}
                 </option>
             )
         })
 
         return (
-            <div className='my-3'>
-                <span className='category-label mr-2'>Category:</span>
+            <CategorySelectContainer>
+                <CategoryLabel label={'Category:'} />
                 <select onChange={this.selectCategory}>
                     {selectOptions}
                 </select>
-            </div>
+            </CategorySelectContainer>
         )
     }
 
-    private buildContent = () => {
+    render() {
+        const { theme, config } = this.state   
+        const isDarkTheme = theme === THEME_DARK
+        
         return (
-            <SoundBoard
-                audioSrc={this.allAudioSrc}
-                soundboardConfig={this.state.config}
-            />
-        )
-    }
+            <ThemeProvider theme={(isDarkTheme) ? darkTheme : lightTheme}>
+                <AppWrapper>
+                    <AppHeader>
+                        <HeaderLogo src={cheapheatLogo} />
+                    </AppHeader>
 
-    private buildFooter = () => {
-        return (
-            <footer className='footer d-flex flex-row justify-content-end'>
-                {this.buildThemeToggle()}
-            </footer>
-        )
-    }
-
-    private buildThemeToggle = () => {
-        const isDarkTheme = this.state.theme === THEME_DARK
-        const buttonIcon = (isDarkTheme) ? 'fas fa-sun' : 'fas fa-moon'
-        return (
-            <button
-                className='btn btn-primary'
-                onClick={() => this.toggleTheme()}
-            >
-                <i className={`${buttonIcon}`}></i>
-            </button>
-        )
-    }
-
-    public render() {        
-        return (
-            <div className="App" data-theme={this.state.theme}>
-                {this.buildHeader()}
-
-
-                <div className="container mt-3">
-                    <div className="content-container">
+                    <ContentContainer>
                         {this.buildCategorySelect()}
-                        {this.buildContent()}
-                    </div>
-                </div>
+                        <SoundBoard audioSrc={this.allAudioSrc} soundboardConfig={config} />
+                    </ContentContainer>
 
-                {this.buildFooter()}
-            </div>
-        );
+                    <Footer>
+                        <ThemeToggle
+                            isDarkTheme={isDarkTheme}
+                            onClick={this.toggleTheme}
+                        />
+                    </Footer>
+                </AppWrapper>
+            </ThemeProvider>
+        )
     }
 }
 
-export default App;
+const AppWrapper = styled.div`
+    min-height: 100%;
+    background: ${({ theme }) => theme.bgColor};
+    color: ${({ theme }) => theme.color};
+    text-align: center;
+`
+AppWrapper.displayName = 'AppWrapper'
+
+const AppHeader = styled.header`
+    background-color: #1c1d1f;
+    height: 160px;
+    padding: 20px;
+    color: white;
+`
+AppHeader.displayName = 'AppHeader'
+
+const HeaderLogo = styled.img`
+    height: 110px;
+`
+HeaderLogo.displayName = 'HeaderLogo'
+
+const ContentContainer = styled.div`
+    max-width: 660px;
+    margin-left: auto;
+    margin-right: auto;
+`
+ContentContainer.displayName = 'ContentContainer'
+
+const CategorySelectContainer = styled.div`
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+`
+CategorySelectContainer.displayName = 'CategorySelectContainer'
+
+const CategoryLabel = styled((props: { label: string, className?: string }) => (
+    <span className={props.className}>{props.label}</span>
+))`
+    font-size: 12px;
+    margin-right: 0.5rem;
+`
+CategoryLabel.displayName = 'CategoryLabel'
+
+export default App

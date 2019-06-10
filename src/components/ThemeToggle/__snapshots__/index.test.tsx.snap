@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ThemeToggle should match the snapshot (Dark Theme) 1`] = `
+.c0 {
+  margin: 5px;
+}
+
+<ThemeToggle
+  isDarkTheme={true}
+  onClick={[Function]}
+>
+  <StyledComponent
+    forwardedComponent={
+      Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "attrs": Array [],
+        "componentStyle": ComponentStyle {
+          "componentId": "sc-bdVaJa",
+          "isStatic": true,
+          "lastClassName": "c0",
+          "rules": Array [
+            "
+          margin: 5px;
+      ",
+          ],
+        },
+        "displayName": "ThemeToggle",
+        "foldedComponentIds": Array [],
+        "render": [Function],
+        "styledComponentId": "sc-bdVaJa",
+        "target": [Function],
+        "toString": [Function],
+        "warnTooManyClasses": [Function],
+        "withComponent": [Function],
+        Symbol(Symbol.hasInstance): [Function],
+      }
+    }
+    forwardedRef={null}
+    isDarkTheme={true}
+    onClick={[Function]}
+  >
+    <Component
+      className="c0"
+      isDarkTheme={true}
+      onClick={[Function]}
+    >
+      <button
+        className="btn btn-primary c0"
+        onClick={[Function]}
+      >
+        <ThemeIcon
+          isDarkTheme={true}
+        >
+          <i
+            className="fas fa-sun"
+          />
+        </ThemeIcon>
+      </button>
+    </Component>
+  </StyledComponent>
+</ThemeToggle>
+`;
+
+exports[`ThemeToggle should match the snapshot (Light Theme) 1`] = `
+.c0 {
+  margin: 5px;
+}
+
+<ThemeToggle
+  isDarkTheme={false}
+  onClick={[Function]}
+>
+  <StyledComponent
+    forwardedComponent={
+      Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "attrs": Array [],
+        "componentStyle": ComponentStyle {
+          "componentId": "sc-bdVaJa",
+          "isStatic": true,
+          "lastClassName": "c0",
+          "rules": Array [
+            "
+          margin: 5px;
+      ",
+          ],
+        },
+        "displayName": "ThemeToggle",
+        "foldedComponentIds": Array [],
+        "render": [Function],
+        "styledComponentId": "sc-bdVaJa",
+        "target": [Function],
+        "toString": [Function],
+        "warnTooManyClasses": [Function],
+        "withComponent": [Function],
+        Symbol(Symbol.hasInstance): [Function],
+      }
+    }
+    forwardedRef={null}
+    isDarkTheme={false}
+    onClick={[Function]}
+  >
+    <Component
+      className="c0"
+      isDarkTheme={false}
+      onClick={[Function]}
+    >
+      <button
+        className="btn btn-primary c0"
+        onClick={[Function]}
+      >
+        <ThemeIcon
+          isDarkTheme={false}
+        >
+          <i
+            className="fas fa-moon"
+          />
+        </ThemeIcon>
+      </button>
+    </Component>
+  </StyledComponent>
+</ThemeToggle>
+`;

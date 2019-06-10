@@ -4,15 +4,13 @@
   "private": true,
   "homepage": "https://johndaly.github.io/ch-soundboard",
   "dependencies": {
-    "@types/bootstrap": "^4.2.2",
-    "@types/howler": "^2.0.6",
-    "@types/underscore": "^1.8.12",
     "bootstrap": "^4.3.1",
     "gh-pages": "^2.0.1",
     "howler": "^2.1.1",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
     "react-scripts-ts": "3.1.0",
+    "styled-components": "^4.2.0",
     "underscore": "^1.9.1"
   },
   "scripts": {
@@ -21,13 +19,29 @@
     "start": "react-scripts-ts start",
     "build": "react-scripts-ts build",
     "test": "react-scripts-ts test --env=jsdom",
+    "lint:css": "stylelint './src/**/*.tsx'",
     "eject": "react-scripts-ts eject"
   },
   "devDependencies": {
+    "@types/bootstrap": "^4.3.0",
+    "@types/enzyme": "^3.9.3",
+    "@types/enzyme-to-json": "^1.5.3",
+    "@types/howler": "^2.1.0",
     "@types/jest": "^24.0.6",
     "@types/node": "^11.9.5",
     "@types/react": "^16.8.4",
     "@types/react-dom": "^16.8.2",
-    "typescript": "^3.3.3333"
+    "@types/styled-components": "4.1.8",
+    "@types/underscore": "^1.8.18",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "enzyme-to-json": "^3.3.5",
+    "jest-styled-components": "^6.3.1",
+    "react-test-renderer": "^16.8.6",
+    "stylelint": "^10.1.0",
+    "stylelint-config-recommended": "^2.2.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-processor-styled-components": "^1.8.0",
+    "typescript": "^3.5.1"
   }
 }
