@@ -8,9 +8,11 @@ import { isUndefined } from 'util'
 // Images
 import cheapheatLogo from './assets/images/cheap-heat-logo.png'
 
+// Containers
+import SoundBoard from './containers/SoundBoard'
+
 // Components
 import { Footer } from './components/Shared/Footer'
-import SoundBoard from './components/SoundBoard'
 import { ThemeToggle } from './components/ThemeToggle'
 
 // State

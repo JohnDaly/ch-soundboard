@@ -7,12 +7,14 @@ import { isEqual } from 'underscore'
 // Internal Dependencies
 
 // Interfaces / Types
-import { AudioSpriteData } from 'src/boards/cheapHeat'
+import { AudioSpriteData } from '../../boards/cheapHeat'
+
+// Components
+import DimmedLoader from '../../components/Shared/DimmedLoader'
+import { SoundPad } from '../../components/SoundPad'
 
 // Helpers
 import { setStateAsync } from '../../helpers/promise'
-import DimmedLoader from '../Shared/DimmedLoader'
-import { SoundPad } from '../SoundPad'
 
 interface ComponentProps {
     audioSrc: string
