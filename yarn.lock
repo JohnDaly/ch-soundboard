@@ -205,10 +205,10 @@
     "@types/minimatch" "*"
     "@types/node" "*"
 
-"@types/howler@^2.0.6":
-  version "2.0.6"
-  resolved "https://registry.yarnpkg.com/@types/howler/-/howler-2.0.6.tgz#dcc58541b5406b4b7536870755733caa3cec20aa"
-  integrity sha512-o73DVTNMSvzNifT3L/MxmHWGWurvRyE4cJxrZj1fLN18kH2EvnTorKoLY348B2z5zTZrcMp0GZ8zdCdAciwkag==
+"@types/howler@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@types/howler/-/howler-2.1.0.tgz#a525727788dd941aaab0dfde937e374c0f37cf95"
+  integrity sha512-FQiZRxGbBoOEe35dg1BOIQ+YHEYO3SldrnaPuKJJVuaxJJ/7NwEah87tyWxoTgunLlj6p4kkDKYcQH0aAXliQw==
 
 "@types/jest-diff@*":
   version "20.0.1"
@@ -274,10 +274,10 @@
     "@types/react" "*"
     csstype "^2.2.0"
 
-"@types/underscore@^1.8.12":
-  version "1.8.12"
-  resolved "https://registry.yarnpkg.com/@types/underscore/-/underscore-1.8.12.tgz#ac19f61b8aecfc9b9da608f68148fc27f56d7d33"
-  integrity sha512-HU+WSgUul9NeSFOwR1vtBkIVygGM9PARRRMr6I0r5zyJXMVptVKy6Kedq6C71VY+8DisQ5mDTzqpvg1ohC0YKg==
+"@types/underscore@^1.8.18":
+  version "1.8.18"
+  resolved "https://registry.yarnpkg.com/@types/underscore/-/underscore-1.8.18.tgz#025371cfe062439aaa088d2b64af87cbcfe3c2b7"
+  integrity sha512-mXQ8u416FWMPjp2zWrcVmOZtzKQM6IeyVcuE+RGF/04JLBrMjfnmNKn74VN8fIkFzU97TpzkP0ny0p0h65eC7w==
 
 "@types/unist@*", "@types/unist@^2.0.0":
   version "2.0.3"
