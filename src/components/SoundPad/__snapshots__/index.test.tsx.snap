@@ -55,168 +55,32 @@ exports[`SoundPad should match the snapshot 1`] = `
   title="Test Sound"
   trackID="testSoundID"
 >
-  <StyledComponent
-    forwardedComponent={
-      Object {
-        "$$typeof": Symbol(react.forward_ref),
-        "attrs": Array [],
-        "componentStyle": ComponentStyle {
-          "componentId": "sc-bdVaJa",
-          "isStatic": true,
-          "lastClassName": "c0",
-          "rules": Array [
-            "
-          margin-left: 5px;
-          margin-right: 5px;
-      ",
-          ],
-        },
-        "displayName": "SoundPad",
-        "foldedComponentIds": Array [],
-        "render": [Function],
-        "styledComponentId": "sc-bdVaJa",
-        "target": [Function],
-        "toString": [Function],
-        "warnTooManyClasses": [Function],
-        "withComponent": [Function],
-        Symbol(Symbol.hasInstance): [Function],
-      }
-    }
-    forwardedRef={null}
+  <Component
+    className="c0"
     onClick={[Function]}
     title="Test Sound"
     trackID="testSoundID"
   >
-    <Component
+    <div
       className="c0"
-      onClick={[Function]}
-      title="Test Sound"
-      trackID="testSoundID"
     >
-      <div
-        className="c0"
+      <SoundPadCard
+        onClick={[Function]}
       >
-        <SoundPadCard
+        <button
+          className="c1 card"
           onClick={[Function]}
         >
-          <StyledComponent
-            forwardedComponent={
-              Object {
-                "$$typeof": Symbol(react.forward_ref),
-                "attrs": Array [
-                  Object {
-                    "className": "card",
-                  },
-                ],
-                "componentStyle": ComponentStyle {
-                  "componentId": "sc-bwzfXH",
-                  "isStatic": false,
-                  "lastClassName": "c1",
-                  "rules": Array [
-                    "
-                  cursor: pointer;
-              
-                  /* Dimensions */
-                  width: 40vw;
-                  height: 40vw;
-                  max-height: 120px;
-                  max-width: 120px;
-              
-                  /* Margin/Padding */
-                  margin-bottom: 15px;
-              
-                  /* Border */
-                  border-radius: 3px;
-                  box-shadow: 2px 3px ",
-                    [Function],
-                    ";
-              
-                  /* Font */
-                  font-size: 11px;
-                  color: ",
-                    [Function],
-                    ";
-              
-                  /* Color */
-                  background-color: ",
-                    [Function],
-                    ";
-              
-                  /* Transition */
-                  transition: all 0.2s ease;
-              
-                  :hover {
-                      filter: brightness(85%);
-                  }
-              
-                  :active {
-                      box-shadow: 0px 0px black;
-                      filter: brightness(60%);
-                      transform: scale(0.99) translateY(3px) translateX(2px);
-                  }
-              ",
-                  ],
-                },
-                "displayName": "SoundPadCard",
-                "foldedComponentIds": Array [],
-                "render": [Function],
-                "styledComponentId": "sc-bwzfXH",
-                "target": "button",
-                "toString": [Function],
-                "warnTooManyClasses": [Function],
-                "withComponent": [Function],
-              }
-            }
-            forwardedRef={null}
-            onClick={[Function]}
-          >
-            <button
-              className="card c1"
-              onClick={[Function]}
+          <SoundPadBody>
+            <div
+              className="c2"
             >
-              <SoundPadBody>
-                <StyledComponent
-                  forwardedComponent={
-                    Object {
-                      "$$typeof": Symbol(react.forward_ref),
-                      "attrs": Array [],
-                      "componentStyle": ComponentStyle {
-                        "componentId": "sc-htpNat",
-                        "isStatic": true,
-                        "lastClassName": "c2",
-                        "rules": Array [
-                          "
-                        height: 100%;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                    ",
-                        ],
-                      },
-                      "displayName": "SoundPadBody",
-                      "foldedComponentIds": Array [],
-                      "render": [Function],
-                      "styledComponentId": "sc-htpNat",
-                      "target": "div",
-                      "toString": [Function],
-                      "warnTooManyClasses": [Function],
-                      "withComponent": [Function],
-                    }
-                  }
-                  forwardedRef={null}
-                >
-                  <div
-                    className="c2"
-                  >
-                    Test Sound
-                  </div>
-                </StyledComponent>
-              </SoundPadBody>
-            </button>
-          </StyledComponent>
-        </SoundPadCard>
-      </div>
-    </Component>
-  </StyledComponent>
+              Test Sound
+            </div>
+          </SoundPadBody>
+        </button>
+      </SoundPadCard>
+    </div>
+  </Component>
 </SoundPad>
 `;

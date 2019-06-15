@@ -9,55 +9,24 @@ exports[`ThemeToggle should match the snapshot (Dark Theme) 1`] = `
   isDarkTheme={true}
   onClick={[Function]}
 >
-  <StyledComponent
-    forwardedComponent={
-      Object {
-        "$$typeof": Symbol(react.forward_ref),
-        "attrs": Array [],
-        "componentStyle": ComponentStyle {
-          "componentId": "sc-bdVaJa",
-          "isStatic": true,
-          "lastClassName": "c0",
-          "rules": Array [
-            "
-          margin: 5px;
-      ",
-          ],
-        },
-        "displayName": "ThemeToggle",
-        "foldedComponentIds": Array [],
-        "render": [Function],
-        "styledComponentId": "sc-bdVaJa",
-        "target": [Function],
-        "toString": [Function],
-        "warnTooManyClasses": [Function],
-        "withComponent": [Function],
-        Symbol(Symbol.hasInstance): [Function],
-      }
-    }
-    forwardedRef={null}
+  <Component
+    className="c0"
     isDarkTheme={true}
     onClick={[Function]}
   >
-    <Component
-      className="c0"
-      isDarkTheme={true}
+    <button
+      className="btn btn-primary c0"
       onClick={[Function]}
     >
-      <button
-        className="btn btn-primary c0"
-        onClick={[Function]}
+      <ThemeIcon
+        isDarkTheme={true}
       >
-        <ThemeIcon
-          isDarkTheme={true}
-        >
-          <i
-            className="fas fa-sun"
-          />
-        </ThemeIcon>
-      </button>
-    </Component>
-  </StyledComponent>
+        <i
+          className="fas fa-sun"
+        />
+      </ThemeIcon>
+    </button>
+  </Component>
 </ThemeToggle>
 `;
 
@@ -70,54 +39,23 @@ exports[`ThemeToggle should match the snapshot (Light Theme) 1`] = `
   isDarkTheme={false}
   onClick={[Function]}
 >
-  <StyledComponent
-    forwardedComponent={
-      Object {
-        "$$typeof": Symbol(react.forward_ref),
-        "attrs": Array [],
-        "componentStyle": ComponentStyle {
-          "componentId": "sc-bdVaJa",
-          "isStatic": true,
-          "lastClassName": "c0",
-          "rules": Array [
-            "
-          margin: 5px;
-      ",
-          ],
-        },
-        "displayName": "ThemeToggle",
-        "foldedComponentIds": Array [],
-        "render": [Function],
-        "styledComponentId": "sc-bdVaJa",
-        "target": [Function],
-        "toString": [Function],
-        "warnTooManyClasses": [Function],
-        "withComponent": [Function],
-        Symbol(Symbol.hasInstance): [Function],
-      }
-    }
-    forwardedRef={null}
+  <Component
+    className="c0"
     isDarkTheme={false}
     onClick={[Function]}
   >
-    <Component
-      className="c0"
-      isDarkTheme={false}
+    <button
+      className="btn btn-primary c0"
       onClick={[Function]}
     >
-      <button
-        className="btn btn-primary c0"
-        onClick={[Function]}
+      <ThemeIcon
+        isDarkTheme={false}
       >
-        <ThemeIcon
-          isDarkTheme={false}
-        >
-          <i
-            className="fas fa-moon"
-          />
-        </ThemeIcon>
-      </button>
-    </Component>
-  </StyledComponent>
+        <i
+          className="fas fa-moon"
+        />
+      </ThemeIcon>
+    </button>
+  </Component>
 </ThemeToggle>
 `;
