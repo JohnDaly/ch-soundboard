@@ -3,8 +3,8 @@ import React from 'react'
 import styled from 'styled-components'
 
 // Internal Dependencies
-import { AudioSpriteData } from 'src/boards/cheapHeat'
-import { ALL_CATEGORIES } from 'src/constants/constants'
+import { AudioSpriteData } from '../../boards/cheapHeat'
+import { ALL_CATEGORIES } from '../../constants/constants'
 
 interface Props {
     config: { [key: string]: AudioSpriteData },

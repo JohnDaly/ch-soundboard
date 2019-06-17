@@ -13,6 +13,7 @@ exports[`SoundPad should match the snapshot 1`] = `
   max-height: 120px;
   max-width: 120px;
   margin-bottom: 15px;
+  border: 1px solid rgba(0,0,0,.125);
   border-radius: 3px;
   box-shadow: 2px 3px;
   font-size: 11px;
@@ -48,6 +49,7 @@ exports[`SoundPad should match the snapshot 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+  text-align: center;
 }
 
 <SoundPad
@@ -68,7 +70,7 @@ exports[`SoundPad should match the snapshot 1`] = `
         onClick={[Function]}
       >
         <button
-          className="c1 card"
+          className="c1"
           onClick={[Function]}
         >
           <SoundPadBody>
