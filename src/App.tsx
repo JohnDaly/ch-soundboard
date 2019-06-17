@@ -6,29 +6,29 @@ import { isUndefined } from 'util'
 // Internal Dependencies
 
 // Images
-import cheapheatLogo from 'src/assets/images/cheap-heat-logo.png'
+import cheapheatLogo from './assets/images/cheap-heat-logo.png'
 
 // Containers
-import SoundBoard from 'src/containers/SoundBoard'
+import SoundBoard from './containers/SoundBoard'
 
 // Components
-import { CategorySelect } from 'src/components/CategorySelect'
-import { Footer } from 'src/components/Footer'
-import { ThemeToggle } from 'src/components/ThemeToggle'
+import { CategorySelect } from './components/CategorySelect'
+import { Footer } from './components/Footer'
+import { ThemeToggle } from './components/ThemeToggle'
 
 // State
-import * as LocalStorage from 'src/store/localStorage'
+import * as LocalStorage from './store/localStorage'
 
 // Helpers
-import { allAudioSrc, AudioSpriteData, soundboardConfig } from 'src/boards/cheapHeat'
-import { ALL_CATEGORIES, THEME_DARK, THEME_STATE_KEY } from 'src/constants/constants'
-import { setStateAsync } from 'src/helpers/promise'
-import { darkTheme, lightTheme } from 'src/helpers/theme'
+import { allAudioSrc, AudioSpriteData, soundboardConfig } from './boards/cheapHeat'
+import { ALL_CATEGORIES, THEME_DARK, THEME_STATE_KEY } from './constants/constants'
+import { setStateAsync } from './helpers/promise'
+import { darkTheme, lightTheme } from './helpers/theme'
 
 const initialState = {
     theme: THEME_DARK as string,
     config: {} as { [key: string]: AudioSpriteData },
-    category: '' as string,
+    category: ALL_CATEGORIES,
 }
 
 type Props = any

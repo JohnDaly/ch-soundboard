@@ -2,7 +2,7 @@
 
 exports[`ThemeToggle should match the snapshot (Dark Theme) 1`] = `
 .c0 {
-  margin: 5px;
+  margin: 5px 5px 5px auto;
 }
 
 <ThemeToggle
@@ -32,7 +32,7 @@ exports[`ThemeToggle should match the snapshot (Dark Theme) 1`] = `
 
 exports[`ThemeToggle should match the snapshot (Light Theme) 1`] = `
 .c0 {
-  margin: 5px;
+  margin: 5px 5px 5px auto;
 }
 
 <ThemeToggle

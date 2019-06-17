@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CategorySelect should match the snapshot 1`] = `
+.c0 {
+  font-size: 12px;
+  margin-right: 0.5rem;
+}
+
+<Component
+  config={Object {}}
+  onSelectCategory={[Function]}
+>
+  <div>
+    <CategoryLabel
+      label="Category"
+    >
+      <Component
+        className="c0"
+        label="Category"
+      >
+        <span
+          className="c0"
+        >
+          Category
+        </span>
+      </Component>
+    </CategoryLabel>
+    <select
+      onChange={[Function]}
+      value="All"
+    >
+      <CategorySelectOption
+        category="All"
+        key="category_All"
+      >
+        <option
+          value="All"
+        >
+          All
+        </option>
+      </CategorySelectOption>
+    </select>
+  </div>
+</Component>
+`;
