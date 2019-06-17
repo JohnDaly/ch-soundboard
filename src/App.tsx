@@ -6,23 +6,24 @@ import { isUndefined } from 'util'
 // Internal Dependencies
 
 // Images
-import cheapheatLogo from './assets/images/cheap-heat-logo.png'
+import cheapheatLogo from 'src/assets/images/cheap-heat-logo.png'
 
 // Containers
-import SoundBoard from './containers/SoundBoard'
+import SoundBoard from 'src/containers/SoundBoard'
 
 // Components
-import { Footer } from './components/Footer'
-import { ThemeToggle } from './components/ThemeToggle'
+import { CategorySelect } from 'src/components/CategorySelect'
+import { Footer } from 'src/components/Footer'
+import { ThemeToggle } from 'src/components/ThemeToggle'
 
 // State
-import * as LocalStorage from './store/localStorage'
+import * as LocalStorage from 'src/store/localStorage'
 
 // Helpers
-import { allAudioSrc, AudioSpriteData, soundboardConfig } from './boards/cheapHeat'
-import { THEME_DARK, THEME_STATE_KEY } from './constants/constants'
-import { setStateAsync } from './helpers/promise'
-import { darkTheme, lightTheme } from './helpers/theme'
+import { allAudioSrc, AudioSpriteData, soundboardConfig } from 'src/boards/cheapHeat'
+import { ALL_CATEGORIES, THEME_DARK, THEME_STATE_KEY } from 'src/constants/constants'
+import { setStateAsync } from 'src/helpers/promise'
+import { darkTheme, lightTheme } from 'src/helpers/theme'
 
 const initialState = {
     theme: THEME_DARK as string,
@@ -66,7 +67,7 @@ class App extends React.Component<Props, State> {
         const newCategory = e.target.value
         await setStateAsync(this, { category: newCategory })
 
-        if (newCategory === 'All') {
+        if (newCategory === ALL_CATEGORIES) {
             await setStateAsync(this, { config: this.soundboardConfig })
             return
         }
@@ -74,10 +75,13 @@ class App extends React.Component<Props, State> {
         const soundboardKeys = Object.keys(this.soundboardConfig)
         const newConfig = {}
         for (const key of soundboardKeys) {
-            const data = this.soundboardConfig[key]
-            const dataHasCategory = !isUndefined(data.categories.find((category) => category === this.state.category))
+            const audioSpriteData = this.soundboardConfig[key]
+            const spriteCategories = audioSpriteData.categories || []
+            const dataHasCategory = !isUndefined(spriteCategories.find((category) => (
+                category === this.state.category
+            )))
             if (dataHasCategory) {
-                newConfig[data.id] = data
+                newConfig[audioSpriteData.id] = audioSpriteData
             }
         }
 
@@ -88,38 +92,8 @@ class App extends React.Component<Props, State> {
     // Content Builders
     // ------------------------------
 
-    private buildCategorySelect = () => {
-        const categories = ['All']
-        const soundboardKeys = Object.keys(this.soundboardConfig)
-        for (const key of soundboardKeys) {
-            const data = this.soundboardConfig[key]
-            for (const category of data.categories) {
-                if (isUndefined(categories.find((c) => c === category))) {
-                    categories.push(category)
-                }
-            }
-        }
-
-        const selectOptions = categories.map((category, idx) => {
-            return (
-                <option key={`category_${idx}`} value={category}>
-                    {category}
-                </option>
-            )
-        })
-
-        return (
-            <CategorySelectContainer>
-                <CategoryLabel label={'Category:'} />
-                <select onChange={this.selectCategory}>
-                    {selectOptions}
-                </select>
-            </CategorySelectContainer>
-        )
-    }
-
     render() {
-        const { theme, config } = this.state   
+        const { theme, config, category } = this.state   
         const isDarkTheme = theme === THEME_DARK
         
         return (
@@ -130,7 +104,12 @@ class App extends React.Component<Props, State> {
                     </AppHeader>
 
                     <ContentContainer>
-                        {this.buildCategorySelect()}
+                        <CategorySelectContainer
+                            config={this.soundboardConfig}
+                            onSelectCategory={this.selectCategory}
+                            selectedCategory={category}
+                        />
+                        
                         <SoundBoard audioSrc={this.allAudioSrc} soundboardConfig={config} />
                     </ContentContainer>
 
@@ -174,18 +153,10 @@ const ContentContainer = styled.div`
 `
 ContentContainer.displayName = 'ContentContainer'
 
-const CategorySelectContainer = styled.div`
+const CategorySelectContainer = styled(CategorySelect)`
     margin-top: 1rem;
     margin-bottom: 1rem;
 `
 CategorySelectContainer.displayName = 'CategorySelectContainer'
-
-const CategoryLabel = styled((props: { label: string, className?: string }) => (
-    <span className={props.className}>{props.label}</span>
-))`
-    font-size: 12px;
-    margin-right: 0.5rem;
-`
-CategoryLabel.displayName = 'CategoryLabel'
 
 export default App

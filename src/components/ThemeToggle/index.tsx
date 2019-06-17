@@ -12,7 +12,7 @@ export const ThemeToggle: React.FC<Props> = styled(({ isDarkTheme, onClick, clas
         <ThemeIcon isDarkTheme={isDarkTheme} />
     </button>
 ))`
-    margin: 5px;
+    margin: 5px 5px 5px auto;
 `
 ThemeToggle.displayName = 'ThemeToggle'
 
