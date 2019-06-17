@@ -22,7 +22,7 @@ export const SoundPad: React.FC<Props> = styled(({ title, trackID, onClick, clas
 `
 SoundPad.displayName = 'SoundPad'
 
-const SoundPadCard = styled.button.attrs({ className: 'card' })`
+const SoundPadCard = styled.button`
     cursor: pointer;
 
     /* Dimensions */
@@ -35,6 +35,7 @@ const SoundPadCard = styled.button.attrs({ className: 'card' })`
     margin-bottom: 15px;
 
     /* Border */
+    border: 1px solid rgba(0,0,0,.125);
     border-radius: 3px;
     box-shadow: 2px 3px ${({ theme }) => theme.shadowColor};
 
@@ -66,5 +67,6 @@ const SoundPadBody = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
 `
 SoundPadBody.displayName = 'SoundPadBody'
