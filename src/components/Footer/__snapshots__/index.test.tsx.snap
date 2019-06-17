@@ -19,45 +19,12 @@ exports[`Footer should match the snapshot 1`] = `
 }
 
 <Footer>
-  <StyledComponent
-    forwardedComponent={
-      Object {
-        "$$typeof": Symbol(react.forward_ref),
-        "attrs": Array [],
-        "componentStyle": ComponentStyle {
-          "componentId": "sc-bdVaJa",
-          "isStatic": true,
-          "lastClassName": "c0",
-          "rules": Array [
-            "
-          display: flex;
-          flex-direction: row;
-          justify-content: end;
-          position: absolute;
-          bottom: 0;
-          width: 100%;
-      ",
-          ],
-        },
-        "displayName": "Footer",
-        "foldedComponentIds": Array [],
-        "render": [Function],
-        "styledComponentId": "sc-bdVaJa",
-        "target": "footer",
-        "toString": [Function],
-        "warnTooManyClasses": [Function],
-        "withComponent": [Function],
-      }
-    }
-    forwardedRef={null}
+  <footer
+    className="c0"
   >
-    <footer
-      className="c0"
-    >
-      <div>
-        Footer Content
-      </div>
-    </footer>
-  </StyledComponent>
+    <div>
+      Footer Content
+    </div>
+  </footer>
 </Footer>
 `;
